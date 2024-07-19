@@ -31,4 +31,9 @@ module.exports = {
       filename: "./index.html",
     }),
   ],
+  output: {
+    path: path.resolve(__dirname, "dist"), // Output directory
+    filename: "bundle.js", // Output filename
+    publicPath: "/",
+  },
 };
