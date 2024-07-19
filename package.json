@@ -9,7 +9,7 @@
   "private": false,
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
-    "build": "webpack --mode production"
+    "build": "react-scripts --openssl-legacy-provider build"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
