@@ -9,6 +9,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import CallItem from "./CallItem.jsx";
 import ArchiveIcon from "@mui/icons-material/Archive";
+import UnarchiveIcon from "@mui/icons-material/Unarchive";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 
@@ -36,6 +37,31 @@ const grey = {
   700: "#434D5B",
   800: "#303740",
   900: "#1C2025",
+};
+
+const red = {
+  50: "#FFEFEF",
+  100: "#FFCCCC",
+  200: "#FF9999",
+  300: "#FF6666",
+  400: "#FF3333",
+  500: "#FF0000",
+  600: "#E50000",
+  700: "#B20000",
+  800: "#990000",
+  900: "#750000",
+};
+const green = {
+  50: "#E8F5E9",
+  100: "#C8E6C9",
+  200: "#A5D6A7",
+  300: "#81C784",
+  400: "#66BB6A",
+  500: "#4CAF50",
+  600: "#43A047",
+  700: "#388E3C",
+  800: "#2E7D32",
+  900: "#1B5E20",
 };
 
 const Tab = styled(BaseTab)`
@@ -82,7 +108,7 @@ const TabPanel = styled(BaseTabPanel)(
   border: 1px solid ${theme.palette.mode === "dark" ? grey[700] : grey[200]};
   border-radius: 12px;
   opacity: 0.6;
-  max-height: 420px;
+  max-height: 450px;
   overflow-y: auto; 
   `
 );
@@ -115,7 +141,7 @@ const ArchiveButton = styled("button")`
   }
 `;
 
-export default function UnstyledTabsIntroduction() {
+export default function FullWidthTabs() {
   const [activityCalls, setActivityCalls] = useState([]);
   const [alert, setAlert] = useState({});
   const BASE_URL = "https://aircall-backend.onrender.com";
@@ -219,14 +245,6 @@ export default function UnstyledTabsIntroduction() {
     }, 2000);
   };
 
-  // const updateCall = (id, is_archived) => {
-  //   setActivityCalls((prevCalls) =>
-  //     prevCalls.map((call) =>
-  //       call.id === id ? { ...call, is_archived } : call
-  //     )
-  //   );
-  // };
-
   const updateCallInState = (updatedCall) => {
     setActivityCalls((prevCalls) =>
       prevCalls.map((call) => (call.id === updatedCall.id ? updatedCall : call))
@@ -251,7 +269,8 @@ export default function UnstyledTabsIntroduction() {
               )}
             </Stack>
             <ArchiveButton onClick={handleArchiveCalls}>
-              <ArchiveIcon style={{ marginRight: "10px" }} /> Archive All Calls
+              <ArchiveIcon style={{ color: red[600], marginRight: "10px" }} />{" "}
+              Archive All Calls
             </ArchiveButton>
             {nonArchivedCalls.map((nonArchivedCall) => (
               <CallItem
@@ -288,8 +307,10 @@ export default function UnstyledTabsIntroduction() {
               )}
             </Stack>
             <ArchiveButton onClick={handleUnArchiveCalls}>
-              <ArchiveIcon style={{ marginRight: "10px" }} /> Unarchive All
-              Calls
+              <UnarchiveIcon
+                style={{ color: green[600], marginRight: "10px" }}
+              />{" "}
+              Unarchive All Calls
             </ArchiveButton>
             {archivedCalls.map((archivedCall) => (
               <CallItem
