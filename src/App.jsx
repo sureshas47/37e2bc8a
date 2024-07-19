@@ -1,17 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
 
-import Header from './Header.jsx';
+import Header from "./Component/Header.jsx";
+import FullWidthTabs from "./Component/FullWidthTabs.jsx";
 
 const App = () => {
   return (
-    <div className='container'>
-      <Header/>
-      <div className="container-view">Some activities should be here</div>
+    <div className="container">
+      <Header />
+      <FullWidthTabs />
     </div>
   );
 };
-
-ReactDOM.render(<App/>, document.getElementById('app'));
 
 export default App;
