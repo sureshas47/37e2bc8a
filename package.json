@@ -8,7 +8,7 @@
   "license": "",
   "private": false,
   "scripts": {
-    "preinstall": "nvm use 16",
+    "prebuild": "npm install -D webpack-cli",
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production"
   },
