@@ -8,6 +8,7 @@
   "license": "",
   "private": false,
   "scripts": {
+    "preinstall": "nvm use 16",
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production"
   },
