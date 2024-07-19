@@ -2,6 +2,12 @@ const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+  entry: "./src/index.js", // Entry point of your app
+  output: {
+    path: path.resolve(__dirname, "dist"), // Output directory
+    filename: "bundle.js", // Output filename
+    publicPath: "/", // Ensure the assets are served from the root
+  },
   module: {
     rules: [
       {
@@ -32,9 +38,4 @@ module.exports = {
       filename: "./index.html",
     }),
   ],
-  output: {
-    path: path.resolve(__dirname, "dist"), // Output directory
-    filename: "bundle.js", // Output filename
-    publicPath: "/",
-  },
 };
